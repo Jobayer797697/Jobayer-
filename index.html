@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations! You're selected!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #ff007f, #ffbf00);
+            color: white;
+            padding: 50px;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 20px;
+            background-color: #00ff87;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background-color: #00c26e;
+        }
+        .countdown {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #ffdf00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Congratulations!</h1>
+        <p>You have been selected for a chance to win a $500 Amazon Gift Card!</p>
+        <p>Click the button below and complete a short survey to claim your reward.</p>
+        <button onclick="claimNow()">CLAIM NOW</button>
+        <div class="countdown" id="countdown">Offer expires in 05:00</div>
+    </div>
+
+    <script>
+        function claimNow() {
+            window.location.href = "YOUR_CPA_OFFER_LINK_HERE";
+        }
+
+        // Simple countdown timer
+        let timer = 300; // 5 minutes in seconds
+        const countdownElement = document.getElementById('countdown');
+        setInterval(() => {
+            if (timer > 0) {
+                timer--;
+                const minutes = Math.floor(timer / 60).toString().padStart(2, '0');
+                const seconds = (timer % 60).toString().padStart(2, '0');
+                countdownElement.textContent = `Offer expires in ${minutes}:${seconds}`;
+            } else {
+                countdownElement.textContent = "Offer expired! Hurry up next time!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
